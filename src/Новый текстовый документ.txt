@@ -1,0 +1,63 @@
+const cssSelectorBuilder = {
+  element(value) {
+    this.element = value;
+    return this;
+  },
+
+  id(value) {
+    this.id = `#${value}`;
+    return this;
+  },
+
+  class(value) {
+    this.class += `.${value}`;
+    return this;
+  },
+
+  attr(value) {
+    this.attr = `[${value}]`;
+    return this;
+  },
+
+  pseudoClass(value) {
+    this.pseudoClass = `:${value}`;
+    return this;
+  },
+
+  pseudoElement(value) {
+    this.pseudoElement = `::${value}`;
+    return this;
+  },
+
+  combine(selector1, combinator, selector2) {
+    return `${selector1.stringify()}${combinator}${selector2.stringify()}`;
+  },
+
+  stringify: function () {
+    let res = '';
+    res += typeof this.element === 'string' ? this.element : '';
+    res += typeof this.id === 'string' ? this.id : '';
+    res += typeof this.class === 'string' ? this.class : '';
+    res += typeof this.attr === 'string' ? this.attr : '';
+    res += typeof this.pseudoClass === 'string' ? this.pseudoClass : '';
+    res += typeof this.pseudoElement === 'string' ? this.pseudoElement : '';
+
+    return res;
+  }
+};
+
+getMatrixProduct:
+
+  const m3 = [];
+  for (let i = 0; i < m1.length; i += 1) {
+    m3.push([]);
+    for (let j = 0; j < m1[i].length; j += 1) {
+      let res = 0;
+      for (let k = 0; k < m1[i].length; k += 1) {
+        res += m1[i][k] * m2[k][j];
+      }
+      m3[i].push(res);
+    }
+  }
+
+  return m3;
